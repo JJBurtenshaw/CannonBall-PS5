@@ -16,6 +16,6 @@ Experimental / In Development
 
 The SDL-based port has successfully run on real PS5 hardware. Native PS5 packaging and dashboard launching have also been demonstrated using test applications. Full native integration is still underway.
 
-Original project: Chris White's CannonBall (https://github.com/Endprodukt/cannonball-dx)
+Original project: Chris White's CannonBall ([https://github.com/djyt/cannonball](https://github.com/djyt/cannonball))
 
 Disclaimer: This is an unofficial homebrew project and is not affiliated with or endorsed by Sega or Sony.
