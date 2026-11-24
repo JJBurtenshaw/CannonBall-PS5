@@ -1,0 +1,51 @@
+# ps5-native-app-boilerplate - Generated and local-only file exclusions.
+# Copyright (C) 2026 BlackBearReloaded
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+.local/
+.deps/
+.env
+__pycache__/
+*.pyc
+build/
+dist/
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+*.log
+*.elf
+*.self
+*.sprx
+*.prx
+*.pkg
+
+# CannonBall PS5 local dependencies and release outputs
+/local-includes/
+/local-libs/
+/engine-source/
+/preserved-diagnostics/
+/reference/
+/release/
+/release-artifacts/
+*.a
+*.o
+*.zip
+*.7z
+*.rar
+*.ffpkg
+*.ffpfsc
+*.before*
+*.backup*
+*.bak
+*.orig
+
+# Never commit game ROMs or personal saved data
+**/roms/*
+!**/roms/README.md
+**/saves/
+**/epr-*
+**/mpr-*
+**/opr-*

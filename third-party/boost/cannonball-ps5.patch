@@ -1,0 +1,64 @@
+--- a/boost/multiprecision/cpp_int/bitwise.hpp
++++ b/boost/multiprecision/cpp_int/bitwise.hpp
+@@ -436,12 +436,12 @@
+          ++i;
+       }
+    }
+-   for (; rs - i >= 2 + offset; ++i)
++   for (; static_cast<std::ptrdiff_t>(static_cast<std::ptrdiff_t>(rs) - static_cast<std::ptrdiff_t>(i)) >= static_cast<std::ptrdiff_t>(2 + static_cast<std::ptrdiff_t>(offset)); ++i)
+    {
+       pr[rs - 1 - i] = pr[rs - 1 - i - offset] << shift;
+       pr[rs - 1 - i] |= pr[rs - 2 - i - offset] >> (Int::limb_bits - shift);
+    }
+-   if (rs - i >= 1 + offset)
++   if (rs - i >= static_cast<std::size_t>(static_cast<std::size_t>(1u) + offset))
+    {
+       pr[rs - 1 - i] = pr[rs - 1 - i - offset] << shift;
+       ++i;
+--- a/boost/multiprecision/cpp_int/divide.hpp
++++ b/boost/multiprecision/cpp_int/divide.hpp
+@@ -552,8 +552,14 @@
+     const limb_type                                                             mod)
+ {
+    const std::ptrdiff_t n = static_cast<std::ptrdiff_t>(a.size());
+-   const double_limb_type two_n_mod = static_cast<limb_type>(1u) + (~static_cast<limb_type>(0u) - mod) % mod;
+-   limb_type              res       = a.limbs()[n - 1] % mod;
++
++   const double_limb_type two_n_mod =
++      static_cast<double_limb_type>
++      (
++         static_cast<double_limb_type>(1u) + static_cast<limb_type>(static_cast<limb_type>(~static_cast<limb_type>(0u) - mod) % mod)
++      );
++
++   limb_type res = a.limbs()[n - 1] % mod;
+ 
+    for (std::ptrdiff_t i = n - 2; i >= 0; --i)
+       res = static_cast<limb_type>(static_cast<double_limb_type>(static_cast<double_limb_type>(res * two_n_mod) + a.limbs()[i]) % mod);
+--- a/boost/numeric/interval/detail/ppc_rounding_control.hpp
++++ b/boost/numeric/interval/detail/ppc_rounding_control.hpp
+@@ -28,10 +28,10 @@
+   double dmode;
+ } rounding_mode_struct;
+ 
+-static const rounding_mode_struct mode_upward      = { 0xFFF8000000000002LL };
+-static const rounding_mode_struct mode_downward    = { 0xFFF8000000000003LL };
+-static const rounding_mode_struct mode_to_nearest  = { 0xFFF8000000000000LL };
+-static const rounding_mode_struct mode_toward_zero = { 0xFFF8000000000001LL };
++static const rounding_mode_struct mode_upward      = { (::boost::long_long_type)0xFFF8000000000002LL };
++static const rounding_mode_struct mode_downward    = { (::boost::long_long_type)0xFFF8000000000003LL };
++static const rounding_mode_struct mode_to_nearest  = { (::boost::long_long_type)0xFFF8000000000000LL };
++static const rounding_mode_struct mode_toward_zero = { (::boost::long_long_type)0xFFF8000000000001LL };
+ 
+ struct ppc_rounding_control
+ {
+--- a/boost/phoenix/stl/tuple.hpp
++++ b/boost/phoenix/stl/tuple.hpp
+@@ -110,7 +110,7 @@
+     namespace placeholders {
+         #define BOOST_PP_LOCAL_LIMITS (1, BOOST_PHOENIX_ARG_LIMIT)
+         #define BOOST_PP_LOCAL_MACRO(N)                                                \
+-            auto uarg##N =                                                             \
++            auto const uarg##N =                                                       \
+             boost::phoenix::get_<(N)-1>(boost::phoenix::placeholders::arg1);
+         #include BOOST_PP_LOCAL_ITERATE()
+     }
