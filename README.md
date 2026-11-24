@@ -22,6 +22,16 @@ Based on [CannonBall](https://github.com/djyt/cannonball) by Chris White and the
 - Configurable gameplay enhancements
 - Persistent settings and high scores
 
+<!-- SCREENSHOTS START -->
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/main-menu.jpg" alt="CannonBall PS5 Main Menu" width="49%">
+  <img src="docs/screenshots/gameplay.jpg" alt="CannonBall PS5 Gameplay" width="49%">
+</p>
+
+<!-- SCREENSHOTS END -->
+
 ## Download
 
 [Latest release](https://github.com/JJBurtenshaw/CannonBall-PS5/releases/latest)
