@@ -139,7 +139,7 @@ The release executable has been validated on real PS5 hardware. Independent sour
 - **PacBrew contributors** — PS5 library dependencies.
 - **Boost contributors** — Boost C++ libraries.
 - **ShadowMountPlus contributors** — Native homebrew launching.
-- **Jonthan J. Burtenshaw** — CannonBall PS5 port, integration, optimization and hardware testing.
+- **Jonathan J. Burtenshaw** — CannonBall PS5 port, integration, optimization and hardware testing.
 - **ChatGPT** — ;) 
 
 ## Licensing
